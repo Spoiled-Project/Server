@@ -9,8 +9,8 @@ def return_errors(func):
         try:
             res = func(*args, **kwargs)
         except Exception as e:
-            res = str(e)
-        return res, 500
+            res = str(e), 500
+        return res
 
     return wrap
 
