@@ -18,8 +18,6 @@ def index():
 @return_errors
 def check():
     return handle_req(request.get_json())
-    req = request.data
-    return req
 
 
 if __name__ == '__main__':
