@@ -80,7 +80,8 @@ def handle_req(req: dict) -> list:
 
 
 if __name__ == '__main__':
-    handle_req({RestsMacros.SERIES: ['avatar', 'the good place'],
+    res = handle_req({RestsMacros.SERIES: ['avatar', 'the good place'],
                 RestsMacros.IMAGES: [
                     'https://letsenhance.io/static/334225cab5be263aad8e3894809594ce/75c5a/MainAfter.jpg',
                     'https://static.vecteezy.com/packs/media/vectors/term-bg-1-3d6355ab.jpg']})
+    print(res)
