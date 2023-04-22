@@ -25,26 +25,29 @@ def check_image(url: str, detectors: list) -> bool:
     @param detectors: A list of callable detectors that check if the received image is its spoiler.
     @return: If one or more of the detectors found the received image as a spoiler.
     """
-    img = Image.open(BytesIO(requests.get(url).content))
-    # here's executor is a future value alternative for python because python's normal Thread can't return is returned
-    # value.
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        results = [executor.submit(detector, img) for detector in detectors]
-    result = PROCESSING
-    while result == PROCESSING:
-        still_processing = False
-        for calculation in results:
-            # Checks if the spoiler detector has finished to check if the image is a spoiler.
-            if calculation.done():
-                # Gets the detector result.
-                res = calculation.result()
-                if res == SPOILER:
-                    result = SPOILER
-            else:
-                still_processing = True
-        if not still_processing and result == PROCESSING:
-            result = NOT_SPOILER
-    return result == SPOILER
+    try:
+        img = Image.open(BytesIO(requests.get(url).content))
+        # here's executor is a future value alternative for python because python's normal Thread can't return is returned
+        # value.
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            results = [executor.submit(detector, img) for detector in detectors]
+        result = PROCESSING
+        while result == PROCESSING:
+            still_processing = False
+            for calculation in results:
+                # Checks if the spoiler detector has finished to check if the image is a spoiler.
+                if calculation.done():
+                    # Gets the detector result.
+                    res = calculation.result()
+                    if res == SPOILER:
+                        result = SPOILER
+                else:
+                    still_processing = True
+            if not still_processing and result == PROCESSING:
+                result = NOT_SPOILER
+        return result == SPOILER
+    except BaseException:
+        return False
 
 
 def check_images(urls: list, detectors: list) -> list:
