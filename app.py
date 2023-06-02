@@ -1,7 +1,7 @@
 from Handler import handle_req
 from flask import Flask, request
 from flask_cors import CORS
-from utils import *
+from util import *
 from Validator import return_errors
 
 app = Flask(__name__)
