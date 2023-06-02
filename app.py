@@ -1,5 +1,6 @@
 from flask import Flask, request
 from flask_cors import CORS
+import os
 
 """
 from Handler import handle_req
@@ -25,4 +26,4 @@ def check():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=int(os.environ.get("PORT", 8080)), host='0.0.0.0',debug=True)
