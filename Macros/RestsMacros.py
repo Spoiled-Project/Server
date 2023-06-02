@@ -1,0 +1,2 @@
+SERIES = 'series'
+IMAGES = 'images'
