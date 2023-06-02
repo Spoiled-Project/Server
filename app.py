@@ -3,6 +3,7 @@ from flask import Flask, request
 from flask_cors import CORS
 from utils import *
 from Validator import return_errors
+from os import environ
 
 app = Flask(__name__)
 CORS(app)
@@ -21,4 +22,4 @@ def check():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=int(environ.get("PORT", 8080)), host='0.0.0.0',debug=True)
