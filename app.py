@@ -1,11 +1,12 @@
 from Handler import handle_req
 from flask import Flask, request
+from flask_cors import CORS
 from utils import *
 from Validator import return_errors
 from os import environ
 
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route('/', endpoint='index', methods=['GET'])
 @return_errors
