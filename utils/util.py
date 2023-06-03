@@ -8,8 +8,8 @@ def get_ser_lst() -> list:
     a need for the app variable's root path to create the path to the Series path.
     @return: A list of the series the application support.
     """
-    from Series import Spoiler_detector
-    return [i.replace("_", " ") for i in filter(lambda i: str(type(getattr(Spoiler_detector, i))) == "<class 'function'>", Spoiler_detector.__dict__)]
+    from Macros.ModelMacros import SERIES_LIST, NOTHING_VALUE
+    return [serie for serie in filter(lambda i: i != NOTHING_VALUE, SERIES_LIST)]
 
 
 if __name__ == "__main__":
