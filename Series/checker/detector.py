@@ -1,6 +1,6 @@
 import numpy as np
 from PIL import Image
-from Macros.ModelMacros import SERIES_LIST, MIN_CONFIDENCE, NOTHING_VALUE
+from Macros.ModelMacros import SERIES_LIST, CONFIDENCES, NOTHING_VALUE
 from keras.utils import img_to_array
 from Macros.ModelMacros import PIC_SIZE
 from tensorflow import image
@@ -19,7 +19,7 @@ def detect_serie(image: Image) -> str:
     predicted_class_index = np.argmax(predictions)
     predicted_class_name = SERIES_LIST[predicted_class_index]
     confidence = predictions[0][predicted_class_index] * 100
-    return predicted_class_name if confidence >= MIN_CONFIDENCE else NOTHING_VALUE
+    return predicted_class_name if confidence >= CONFIDENCES[predicted_class_name] else NOTHING_VALUE
 
 
 if __name__ == '__main__':
