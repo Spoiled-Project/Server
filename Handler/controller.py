@@ -21,6 +21,8 @@ def download_image(url: str) -> Image:
         img = Image.open(BytesIO(plain_data))
     else:
         img = Image.open(BytesIO(requests.get(url).content))
+    if img.mode != 'RGB':
+        img = img.convert('RGB')
     img = keras.utils.array_to_img(image.resize(img, PIC_SIZE))
     return img
 
