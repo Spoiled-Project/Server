@@ -5,6 +5,8 @@ from keras.utils import img_to_array
 from Macros.ModelMacros import PIC_SIZE
 from tensorflow import image
 from tensorflow import keras
+
+
 def detect_serie(image: Image) -> str:
     from .model import model
     image_array = img_to_array(image)
@@ -21,6 +23,6 @@ def detect_serie(image: Image) -> str:
 
 
 if __name__ == '__main__':
-    img = Image.open(r'C:\Users\Eliad\Projects\Spoiled\Server\Series\checker\ep1frame1769.jpg')
+    img = Image.open(r'C:\Users\Eliad\Projects\Spoiled\Server\Series\checker\the-good-place-season-4-1.jpeg')
     img = keras.utils.array_to_img(image.resize(img, PIC_SIZE))
     print(detect_serie(img))  # passing the image object here

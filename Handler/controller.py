@@ -35,6 +35,7 @@ def check_image(url: str, series: list) -> bool:
     try:
         img = download_image(url)
         serie = detect_serie(img)
+        print(series)
         return serie in series
     except BaseException as e:
         print(e)
@@ -64,15 +65,16 @@ def handle_req(req: dict) -> dict:
     @return: Which of the request's images is a spoiler and which isn't.
     """
     # Loading the demanded detectors.
-    series: [str]= [serie.replace(" ", "_") for serie in req[RestsMacros.SERIES]]
+    series: [str] = [serie for serie in req[RestsMacros.SERIES]]
     # checks each image using all the detectors on each.
     res: dict = check_images(req[RestsMacros.IMAGES], series)
     return res
 
 
 if __name__ == '__main__':
-    ans = handle_req({RestsMacros.SERIES: ['Avatar', 'The good place'],
+    ans = handle_req({RestsMacros.SERIES: ['Avatar', 'The Good Place'],
                 RestsMacros.IMAGES: [
+                    'https://ggsc.s3.amazonaws.com/images/uploads/the-good-place-season-4-1.jpeg',
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVAnG915UzMsCQxYYvNJBr2ywgSqcHrHFa1w&usqp=CAU',
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcQLFjeTF9UieEaLl-tnbws5aRSH91qSu68g&usqp=CAU',
                     'https://letsenhance.io/static/334225cab5be263aad8e3894809594ce/75c5a/MainAfter.jpg',
