@@ -1,15 +1,23 @@
-import os
-
-from flask import Flask
+from Handler import handle_req
+from flask import Flask, request
+from utils import *
+from Validator import return_errors
+from os import environ
 
 app = Flask(__name__)
 
 
-@app.route("/")
-def hello_world():
-    name = os.environ.get("NAME", "World")
-    return "Hello {}!".format(name)
+@app.route('/', endpoint='index', methods=['GET'])
+@return_errors
+def index():
+    return get_ser_lst()
 
 
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+@app.route('/', endpoint='check', methods=['POST'])
+@return_errors
+def check():
+    return handle_req(request.get_json())
+
+
+if __name__ == '__main__':
+    app.run(port=int(environ.get("PORT", 8080)), host='0.0.0.0')
