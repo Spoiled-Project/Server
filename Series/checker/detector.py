@@ -25,4 +25,3 @@ def detect_serie(image: Image) -> str:
 if __name__ == '__main__':
     img = Image.open(r'C:\Users\Eliad\Projects\Spoiled\Server\Series\checker\the-good-place-season-4-1.jpeg')
     img = keras.utils.array_to_img(image.resize(img, PIC_SIZE))
-    print(detect_serie(img))  # passing the image object here

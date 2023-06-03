@@ -35,10 +35,8 @@ def check_image(url: str, series: list) -> bool:
     try:
         img = download_image(url)
         serie = detect_serie(img)
-        print(series)
         return serie in series
     except BaseException as e:
-        print(e)
         return False
 
 

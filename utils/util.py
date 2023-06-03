@@ -10,7 +10,3 @@ def get_ser_lst() -> list:
     """
     from Macros.ModelMacros import SERIES_LIST, NOTHING_VALUE
     return [serie for serie in filter(lambda i: i != NOTHING_VALUE, SERIES_LIST)]
-
-
-if __name__ == "__main__":
-    print(get_ser_lst())
