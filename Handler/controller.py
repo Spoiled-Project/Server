@@ -74,6 +74,7 @@ def handle_req(req: dict) -> dict:
 if __name__ == '__main__':
     ans = handle_req({RestsMacros.SERIES: ['Avatar', 'The Good Place'],
                 RestsMacros.IMAGES: [
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2fXAHBZUDUARvqeM6RzTAIc8XQ9wex3Eu2w&usqp=CAU',
                     'https://ggsc.s3.amazonaws.com/images/uploads/the-good-place-season-4-1.jpeg',
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVAnG915UzMsCQxYYvNJBr2ywgSqcHrHFa1w&usqp=CAU',
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcQLFjeTF9UieEaLl-tnbws5aRSH91qSu68g&usqp=CAU',

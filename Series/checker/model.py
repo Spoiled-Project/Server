@@ -1,6 +1,7 @@
 from keras.models import load_model
+from Macros.ModelMacros import PATH
 
 
-model = load_model(r'C:\Users\Eliad\Projects\Spoiled\Server\Series\checker\model\my_full_model_res.h5')
+model = load_model(PATH)
 
 __app__ = ['model']
