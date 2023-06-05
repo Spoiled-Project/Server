@@ -5,10 +5,10 @@ from keras.utils import img_to_array
 from Macros.ModelMacros import PIC_SIZE
 from tensorflow import image
 from tensorflow import keras
-
+from model import model
 
 def detect_serie(image: Image) -> str:
-    from .model import model
+
     image_array = img_to_array(image)
     image_array = np.expand_dims(image_array, axis=0)
     image_array /= 255.
