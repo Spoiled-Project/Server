@@ -34,12 +34,12 @@ def check_image(url: str, series: list) -> bool:
     @param detectors: A list of callable detectors that check if the received image is its spoiler.
     @return: If one or more of the detectors found the received image as a spoiler.
     """
-    try:
-        img = download_image(url)
-        serie = detect_serie(img)
-        return serie in series
-    except BaseException as e:
-        return False
+    #try:
+    img = download_image(url)
+    serie = detect_serie(img)
+    return serie in series
+    #except BaseException as e:
+    #    return False
 
 
 def check_images(urls: list, series: [str]) -> dict:
