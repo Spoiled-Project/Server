@@ -3,5 +3,3 @@ from Macros.ModelMacros import PATH
 
 
 model = load_model(PATH)
-
-__app__ = ['model']

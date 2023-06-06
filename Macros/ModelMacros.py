@@ -5,7 +5,7 @@ CONFIDENCES: dict = {NOTHING_VALUE: 90,
                      'The Good Place': 0,
                      'Avatar': 50
                      }
-PATH: str = r'Series\checker\model\my_full_model_res.h5'
+PATH: str = r'Series/SerieDetector/models/my_full_model_res.h5'
 SERIES_LIST: Tuple = tuple(CONFIDENCES.keys())
 PIC_SIZE: Tuple = (224, 224)
 
