@@ -21,4 +21,6 @@ def check():
 
 
 if __name__ == '__main__':
+    from Series.SerieDetector.models import model
+    model_instance = model
     app.run(port=int(environ.get("PORT", 8080)), host='0.0.0.0')
