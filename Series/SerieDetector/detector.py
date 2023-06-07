@@ -9,6 +9,9 @@ from .models import model
 
 
 def detect_serie(image: Image) -> str:
+    """
+    The function checks runs the received image and returns its output.
+    """
     image_array = img_to_array(image)
     image_array = np.expand_dims(image_array, axis=0)
     image_array /= 255.

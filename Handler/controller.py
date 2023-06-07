@@ -64,7 +64,7 @@ def handle_req(req: dict) -> dict:
     @param req: The server's request.
     @return: Which of the request's images is a spoiler and which isn't.
     """
-    # Loading the demanded detectors.
+    # Loading the series wanted to get detected.
     series: [str] = [serie for serie in req[RestsMacros.SERIES]]
     # checks each image using all the detectors on each.
     res: dict = check_images(req[RestsMacros.IMAGES], series)
