@@ -4,8 +4,8 @@ from typing import Tuple
 NOTHING_VALUE: str = 'Nothing'
 # The minimal confidence of serie detection acceptable by the server.
 CONFIDENCES: dict = {NOTHING_VALUE: 90,
-                     'The Good Place': 0,
-                     'Avatar': 50
+                     'The Good Place': 30,
+                     'Avatar': 90
                      }
 # path to the nural network.
 PATH: str = r'Series/SerieDetector/models/my_full_model_res.h5'
